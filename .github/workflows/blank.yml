@@ -1,0 +1,44 @@
+name: Chef
+on: 
+  order: [lunch, dinner]
+jobs:
+  sandwich:
+    steps:
+      - name: Slice Bread Twice
+        run: npm run cut --slice --bread 2
+      - name: Apply Condiments
+        run: npm run apply --condiments --no-mayo
+      - name: Apply Filling
+        run: npm run apply --filling spam
+      - name: Cut Sandwich
+        run: npm run cut --sandwich --angle 45deg
+  soup:
+    steps:
+      - name: Warm Soup Portion
+        run: npm run microwave --soup --time 120
+      - name: Apply Croutons
+        run: npm run apply --croutons
+      - name: Sprinkle Cheese
+        run: npm run apply --cheese --sprinkle "parmigiano reggiano"
+      - name: Add Basil Sprig
+        run: npm run apply --sprig basil
+  salad:
+    steps:
+      - name: Mix Leaves
+        run: npm run mix --input lettuce spinach rocket
+      - name: Apply Croutons
+        run: npm run apply --croutons
+      - name: Chop Tomatoes
+        run: npm run cut --tomatoes --size 1cm
+      - name: Chop Cucumber
+        run: npm run cut --cucumber --size 0.5cm
+      - name: Add Feta
+        run: npm run apply --cheese feta
+      - name: Add Dressing
+        run: npm run apply --dressing --drizzle Greek
+  service:
+    steps: 
+      - name: Check Order Ticket
+        run: npm run check --ticket
+      - name: Call Service
+        run: npm run shout -m "Service!"
